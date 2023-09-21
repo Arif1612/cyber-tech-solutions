@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import SideBar from "../Home/SideBar";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+  };
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
   };
 
   return (
@@ -14,7 +19,10 @@ const Navbar = () => {
       <div className="navbar-start">
         <Link className="md:hidden">Menu</Link>
 
-        <div className={`dropdown ${showMenu ? "visible" : ""}`}>
+        <div
+          className={`dropdown ${showMenu ? "visible" : ""} `}
+          onClick={toggleMenu}
+        >
           <label
             tabIndex={0}
             className="btn btn-ghost md:hidden"
@@ -39,9 +47,9 @@ const Navbar = () => {
           <div
             className={`fixed inset-y-0 right-0 w-1/2 bg-custom-gray z-50 transform ${
               showMenu ? "translate-x-0" : "translate-x-full"
-            } transition-transform duration-300 ease-in-out`}
+            } transition-transform duration-300 ease-in-out `}
           >
-            <div className="flex justify-end p-4">
+            <div className="flex justify-end p-4 mt-4">
               <button className="text-white" onClick={toggleMenu}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,10 +108,14 @@ const Navbar = () => {
 
       {/* Navbar End */}
 
-      {/* <div className="navbar-end">
+      <div className="navbar-end">
         <Link className="md:hidden">Sidebar</Link>
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost md:hidden">
+        <div className={`dropdown ${showSidebar ? "visible" : ""}`}>
+          <label
+            tabIndex={0}
+            className="btn btn-ghost md:hidden"
+            onClick={toggleSidebar}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -119,8 +131,37 @@ const Navbar = () => {
               />
             </svg>
           </label>
+
+          <div
+            className={`fixed inset-y-0 left-0 w-1/2 bg-custom-blue-gray  z-50 transform ${
+              showSidebar ? "translate-x-0" : "-translate-x-full"
+            } transition-transform duration-300 ease-in-out`}
+          >
+            <div className="text-center p-4 text-black font-bold ">
+              <div className="flex justify-end p-4">
+                <button className="text-white" onClick={toggleSidebar}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <SideBar></SideBar>
+            </div>
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
