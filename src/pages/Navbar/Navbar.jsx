@@ -37,12 +37,11 @@ const Navbar = () => {
           </label>
 
           <div
-            tabIndex={0}
-            className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-custom-gray rounded-box w-52 text-black font-bold text-center ${
-              showMenu ? "block" : "hidden"
-            }`}
+            className={`fixed inset-y-0 right-0 w-1/2 bg-custom-gray z-50 transform ${
+              showMenu ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out`}
           >
-            <div className="flex justify-end">
+            <div className="flex justify-end p-4">
               <button className="text-white" onClick={toggleMenu}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,13 +59,21 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
-            <Link to="/">Home</Link> <br></br>
-            <Link to="/about">About</Link>
-            <br></br>
-            <Link to="/block">Block</Link>
-            <br></br>
-            <Link to="/contact">Contact</Link>
-            <br></br>
+
+            <div className="text-center p-4 text-black font-bold ">
+              <div className="mt-5  hover:text-blue-600 ">
+                <Link to="/">Home</Link>
+              </div>
+              <div className="mt-5 hover:text-blue-600">
+                <Link>About</Link>
+              </div>
+              <div className="mt-5 hover:text-blue-600">
+                <Link to="/block">Block</Link>
+              </div>
+              <div className="mt-5 hover:text-blue-600">
+                <Link to="/contact">Contact</Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -93,10 +100,10 @@ const Navbar = () => {
 
       {/* Navbar End */}
 
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <Link className="md:hidden">Sidebar</Link>
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -112,10 +119,8 @@ const Navbar = () => {
               />
             </svg>
           </label>
-
-          
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
