@@ -92,16 +92,16 @@ const Navbar = () => {
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <Link className=" hover:text-blue-600 " to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link className=" hover:text-blue-600 " to="/about">About</Link>
           </li>
           <li>
-            <Link to="/block">Block</Link>
+            <Link className=" hover:text-blue-600 " to="/block">Block</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link className=" hover:text-blue-600 " to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
